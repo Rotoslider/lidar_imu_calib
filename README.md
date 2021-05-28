@@ -9,9 +9,9 @@ when develop slam based on 3D lidar, we often use imu to provide priori for matc
 - [ROS](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 ### compile
 ```
-mkdir -p catkin_ws/src   
+  
 cd catkin_ws/src
-git clone https://github.com/chennuo0125-HIT/lidar_imu_calib.git
+git clone https://github.com/Rotoslider/lidar_imu_calib.git
 cd ..
 catkin_make -DCATKIN_WHITELIST_PACKAGES="ndt_omp;lidar_imu_calib"
 ```
@@ -39,4 +39,16 @@ catkin_make -DCATKIN_WHITELIST_PACKAGES="ndt_omp;lidar_imu_calib"
    ```
 ### reference
 [https://blog.csdn.net/weixin_37835423/article/details/110672571](https://blog.csdn.net/weixin_37835423/article/details/110672571)
+   
+### troubleshooting
+If you have issues with LZ4 streamDecode try running the lines below to fix the issue:
+
+   ```
+sudo mv /usr/include/flann/ext/lz4.h /usr/include/flann/ext/lz4.h.bak
+sudo mv /usr/include/flann/ext/lz4hc.h /usr/include/flann/ext/lz4.h.bak
+
+sudo ln -s /usr/include/lz4.h /usr/include/flann/ext/lz4.h
+sudo ln -s /usr/include/lz4hc.h /usr/include/flann/ext/lz4hc.h
+
+   ```
    
